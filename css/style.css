@@ -143,9 +143,9 @@ img {
     display: flex;
 }
 
-/* .header__logo:hover .logo-icon {
-    fill: grey;
-} */
+.header__logo:hover {
+    color: var(--light-gray);
+}
 
 /* Навигация */
 .nav__list {
@@ -259,18 +259,6 @@ img {
     font-size: 1.2rem;
 }
 
-/* .hero__image {
-    flex: 1;
-    text-align: center;
-}
-
-.hero__image img {
-    border-radius: 20px;
-    box-shadow: var(--box-shadow);
-    max-height: 500px;
-    object-fit: cover;
-} */
-
 /* Секция программы */
 .program__content {
     display: grid;
@@ -324,9 +312,12 @@ img {
 }
 
 .program__additional-item {
-    margin-bottom: 10px;
+    padding-bottom: 6px;
+    margin-bottom: 18px;
     display: flex;
     align-items: center;
+    gap: 10px;
+    position: relative;
 }
 
 .program__additional-item svg {
@@ -519,16 +510,9 @@ img {
 }
 
 .footer__logo {
-    /* font-family: 'Raleway', sans-serif;
-    font-size: 2rem;
-    font-weight: 900; */
     color: var(--secondary-color);
     margin-bottom: 20px;
 }
-
-/* .footer__logo span {
-    color: var(--accent-color);
-} */
 
 .footer__description {
     color: #ccc;
@@ -656,8 +640,8 @@ img {
 
 .modal__close {
     position: absolute;
-    top: -20px;
-    right: 20px;
+    top: -28px;
+    right: 6px;
     font-size: 4rem;
     cursor: pointer;
     color: var(--secondary-color);
@@ -702,6 +686,10 @@ img {
     transition: var(--transition);
 }
 
+.modal__input:hover {
+    border-color: var(--accent-hover);
+}
+
 .modal__input:focus {
     outline: none;
     border-color: var(--accent-color);
@@ -713,9 +701,54 @@ img {
     margin-bottom: 20px;
 }
 
-.modal__checkbox input {
-    margin-top: 5px;
-    margin-right: 10px;
+/* Скрываем стандартный чекбокс */
+.modal__checkbox input[type="checkbox"] {
+  display: none;
+}
+
+/* Стилизуем лейбл (сам "квадратик") */
+.modal__checkbox input[type="checkbox"] + label {
+  display: inline-block;
+  position: relative;
+  padding-left: 36px; /* Место для кастомного чекбокса */
+  cursor: pointer;
+}
+
+/* Создаем сам "квадратик" через ::before */
+.modal__checkbox input[type="checkbox"] + label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 3px;
+  width: 24px; /* Размер */
+  height: 24px; /* Размер */
+  border: 1px solid #555;
+  border-radius: var(--border-radius);
+  border-radius: 3px;
+  background-color: var(--gray-color);
+  transition: var(--transition);
+}
+
+/* Стиль при наведении */
+.modal__checkbox input[type="checkbox"] + label:hover::before {
+  border-color: var(--accent-hover);
+}
+
+/* Стиль для отмеченного состояния */
+.modal__checkbox input[type="checkbox"]:checked + label::before {
+  background-color: var(--accent-color); /* Цвет фона при выборе */
+  border-color: var(--accent-hover);
+}
+
+/* Галочка (можно использовать SVG или псевдоэлемент) */
+.modal__checkbox input[type="checkbox"]:checked + label::after {
+  content: '✓'; /* Символ галочки */
+  position: absolute;
+  left: 4px;
+  top: -14px;
+  font-size: 30px;
+  color: var(--secondary-color); /* Цвет галочки */
+  transition: var(--transition);
 }
 
 .modal__checkbox a {
@@ -767,6 +800,12 @@ img {
 }
 
 /* Адаптивность */
+@media (min-width: 1160px) {
+    .program__additional-item svg {
+        width: 40px;
+    }
+}
+
 @media (max-width: 992px) {
     .nav__list {
         gap: 15px;
@@ -842,6 +881,23 @@ img {
 
     .hero__subtitle {
         font-size: 1.3rem;
+    }
+
+    .program__additional-item {
+        flex-direction: column;
+        align-items: start;
+        position: relative;
+    }
+
+    .program__additional-item::after {
+        content: "";
+        width: 100%;
+        height: 1px;
+        background-color: var(--secondary-color);
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 
     .modal__content {
