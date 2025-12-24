@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="logo-icon" viewBox="0 0 178 60" fill="none" width="32" height="32">
+    <!-- Простой дизайн с камерой -->
+    <!-- Корпус камеры -->
+    <rect x="4" y="-50" width="172" height="80" rx="10" stroke="currentColor" stroke-width="2" fill="#e53935"/>
+    <!-- Объектив -->
+    <circle cx="154" cy="-30" r="8" fill="#222" stroke="currentColor" stroke-width="2"/>
+    <circle cx="154" cy="-30" r="4" fill="#111" stroke="currentColor" stroke-width="1"/>
+    <!-- Объектив -->
+    <circle cx="134" cy="-30" r="8" fill="#222" stroke="currentColor" stroke-width="2"/>
+    <circle cx="134" cy="-30" r="4" fill="#111" stroke="currentColor" stroke-width="1"/>
+    <!-- Объектив -->
+    <circle cx="116" cy="-30" r="7" fill="#222" stroke-width="2"/>
+    <circle cx="116" cy="-30" r="3" fill="#111" stroke="currentColor" stroke-width="1"/>
+    <!-- Вспышка -->
+    <circle cx="144" cy="-16" r="4" fill="#fff" stroke="currentColor" stroke-width="2"/>
+
+    <!-- Текст справа от камеры -->
+    <text x="89" y="70" text-anchor="middle" font-family="'Raleway', sans-serif" font-weight="900" font-size="32" letter-spacing="-3" fill="currentColor">
+        Мобильная
+    </text>
+    <text x="87" y="110" text-anchor="middle" font-family="'Raleway', sans-serif" font-weight="900" font-size="46" letter-spacing="-4" fill="#e53935">
+        Съемка
+    </text>
+  </svg>

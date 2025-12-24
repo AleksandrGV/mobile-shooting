@@ -29,8 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Бургер меню для мобильных
     const burger = document.querySelector('.nav__burger');
     const navList = document.querySelector('.nav__list');
-    console.log(burger);
-    console.log(navList);
+
     burger.addEventListener('click', function() {
         burger.classList.toggle('active');
         navList.classList.toggle('active');
@@ -56,82 +55,83 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Модальное окно
-    const modal = document.getElementById('modal');
-    const modalClose = document.getElementById('modal-close');
-    const modalTitle = document.getElementById('modal-title');
-    const modalForm = document.getElementById('modal-form');
-    const tariffInput = document.getElementById('tariff');
+    // // Модальное окно
+    // const modal = document.getElementById('modal');
+    // const modalClose = document.getElementById('modal-close');
+    // const modalTitle = document.getElementById('modal-title');
+    // // const modalForm = document.getElementById('modal-form');
+    // const tariffInput = document.getElementById('tariff');
     
-    // Кнопки для открытия модального окна
-    const signupButtons = document.querySelectorAll('.tariff-card__btn');
-    const preorderButton = document.getElementById('preorder-btn');
-    const creatorLink = document.getElementById('creator-link');
+    // // Кнопки для открытия модального окна
+    // const signupButtons = document.querySelectorAll('.tariff-card__btn');
+    // const preorderButton = document.getElementById('preorder-btn');
+    // const creatorLink = document.getElementById('creator-link');
     
-    // Открытие модального окна для записи на тариф
-    signupButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const tariff = this.getAttribute('data-tariff');
-            modalTitle.textContent = 'Запись на курс';
-            tariffInput.value = tariff;
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-    });
+    // // Открытие модального окна для записи на тариф
+    // signupButtons.forEach(button => {
+    //     button.addEventListener('click', function() {
+    //         const tariff = this.getAttribute('data-tariff');
+    //         modalTitle.textContent = 'Запись на курс';
+    //         tariffInput.value = tariff;
+    //         modal.classList.add('active');
+    //         document.body.style.overflow = 'hidden';
+    //     });
+    // });
     
-    // Открытие модального окна для предзаписи
-    preorderButton.addEventListener('click', function() {
-        modalTitle.textContent = 'Предзапись на курс';
-        tariffInput.value = 'Предзапись (тариф не выбран)';
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
+    // // Открытие модального окна для предзаписи
+    // preorderButton.addEventListener('click', function() {
+    //     const tariff = this.getAttribute('data-tariff');
+    //     modalTitle.textContent = 'Предзапись на курс';
+    //     tariffInput.value = tariff;
+    //     modal.classList.add('active');
+    //     document.body.style.overflow = 'hidden';
+    // });
     
-    // Открытие модального окна для связи с создателем
-    creatorLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        modalTitle.textContent = 'Связь с создателем сайта';
-        tariffInput.value = 'Вопрос к создателю сайта';
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
+    // // // Открытие модального окна для связи с создателем
+    // // creatorLink.addEventListener('click', function(e) {
+    // //     e.preventDefault();
+    // //     modalTitle.textContent = 'Связь с создателем сайта';
+    // //     tariffInput.value = 'Вопрос к создателю сайта';
+    // //     modal.classList.add('active');
+    // //     document.body.style.overflow = 'hidden';
+    // // });
     
-    // Закрытие модального окна
-    modalClose.addEventListener('click', function() {
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    });
+    // // Закрытие модального окна
+    // modalClose.addEventListener('click', function() {
+    //     modal.classList.remove('active');
+    //     document.body.style.overflow = 'auto';
+    // });
     
-    // Закрытие модального окна при клике вне его
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-    });
+    // // Закрытие модального окна при клике вне его
+    // modal.addEventListener('click', function(e) {
+    //     if (e.target === modal) {
+    //         modal.classList.remove('active');
+    //         document.body.style.overflow = 'auto';
+    //     }
+    // });
     
-    // Обработка отправки формы
-    modalForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+    // // Обработка отправки формы
+    // modalForm.addEventListener('submit', function(e) {
+    //     e.preventDefault();
         
-        // В реальном проекте здесь был бы AJAX запрос к серверу
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value,
-            tariff: tariffInput.value
-        };
+    //     // В реальном проекте здесь был бы AJAX запрос к серверу
+    //     const formData = {
+    //         name: document.getElementById('name').value,
+    //         email: document.getElementById('email').value,
+    //         phone: document.getElementById('phone').value,
+    //         tariff: tariffInput.value
+    //     };
         
-        console.log('Отправлены данные формы:', formData);
+    //     console.log('Отправлены данные формы:', formData);
         
-        // Показ сообщения об успешной отправке
-        alert(`Спасибо, ${formData.name}! Ваша заявка на "${formData.tariff}" успешно отправлена. Мы свяжемся с вами в ближайшее время.`);
+    //     // Показ сообщения об успешной отправке
+    //     alert(`Спасибо, ${formData.name}! Ваша заявка на "${formData.tariff}" успешно отправлена. Мы свяжемся с вами в ближайшее время.`);
         
-        // Закрытие модального окна и сброс формы
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-        modalForm.reset();
-    });
+    //     // Закрытие модального окна и сброс формы
+    //     modal.classList.remove('active');
+    //     document.body.style.overflow = 'auto';
+    //     modalForm.reset();
+    // });
     
     // Плавная прокрутка к секциям
     navLinks.forEach(link => {
