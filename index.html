@@ -110,6 +110,81 @@
             </div>
         </section>
 
+        <!-- Секция таймера обратного отсчета -->
+        <section id="countdown" class="countdown section">
+            <div class="container">
+                <div class="countdown__wrapper">
+                    <!-- Заголовок и подзаголовок -->
+                    <div class="countdown__header">
+                        <h2 class="countdown__title section-title">Курс стартует через</h2>
+                        <p class="countdown__subtitle">Успейте записаться по специальной цене!</p>
+                    </div>
+                    
+                    <!-- Сам таймер -->
+                    <div class="countdown__timer">
+                        <div class="countdown__item">
+                            <div class="countdown__number" id="days">00</div>
+                            <div class="countdown__label">Дней</div>
+                        </div>
+                        
+                        <div class="countdown__separator">:</div>
+                        
+                        <div class="countdown__item">
+                            <div class="countdown__number" id="hours">00</div>
+                            <div class="countdown__label">Часов</div>
+                        </div>
+                        
+                        <div class="countdown__separator">:</div>
+                        
+                        <div class="countdown__item">
+                            <div class="countdown__number" id="minutes">00</div>
+                            <div class="countdown__label">Минут</div>
+                        </div>
+                        
+                        <div class="countdown__separator">:</div>
+                        
+                        <div class="countdown__item">
+                            <div class="countdown__number" id="seconds">00</div>
+                            <div class="countdown__label">Секунд</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Блок с датой старта -->
+                    <div class="countdown__date">
+                        <svg width="22" height="22" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Рамка календаря -->
+                            <path d="M3.5 0C3.77614 0 4 0.223858 4 0.5V1H12V0.5C12 0.223858 12.2239 0 12.5 0C12.7761 0 13 0.223858 13 0.5V1H14C15.1046 1 16 1.89543 16 3V14C16 15.1046 15.1046 16 14 16H2C0.895431 16 0 15.1046 0 14V3C0 1.89543 0.895431 1 2 1H3V0.5C3 0.223858 3.22386 0 3.5 0ZM13.4545 3H2.54545C2.24421 3 2 3.22386 2 3.5V4.5C2 4.77614 2.24421 5 2.54545 5H13.4545C13.7558 5 14 4.77614 14 4.5V3.5C14 3.22386 13.7558 3 13.4545 3Z" fill="currentColor"/>
+                            <!-- Текст 12 -->
+                            <text x="8" y="12.5" fill="#000000" font-size="8" text-anchor="middle">12</text>
+                        </svg>
+                        <span>Дата старта курса: <strong id="start-date">12 января 2025</strong></span>
+                    </div>
+                    
+                    <!-- Кнопка CTA -->
+                    <div class="countdown__cta">
+                        <a href="#tariffs" class="btn countdown__btn" id="countdown-btn">
+                            <svg width="22" height="22" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.2514 0.0678058C11.4524 0.184724 11.5463 0.424795 11.4779 0.647058L9.67699 6.50002H13C13.1995 6.50002 13.3799 6.61858 13.459 6.8017C13.5381 6.98482 13.5008 7.19744 13.3641 7.3427L5.36411 15.8427C5.20473 16.012 4.94964 16.0491 4.74863 15.9322C4.54761 15.8153 4.45373 15.5752 4.52212 15.353L6.32303 9.50002H3.00001C2.80053 9.50002 2.62014 9.38145 2.54102 9.19833C2.4619 9.01522 2.4992 8.80259 2.63591 8.65733L10.6359 0.157333C10.7953 -0.0120074 11.0504 -0.049112 11.2514 0.0678058Z" fill="currentColor"/>
+                            </svg>
+                            Записаться сейчас
+                        </a>
+                        <p class="countdown__note">После 12.01.2025 цена увеличится на 30%</p>
+                    </div>
+                    
+                    <!-- Блок сообщения когда таймер завершится -->
+                    <div class="countdown__message" id="countdown-message" style="display: none;">
+                        <div class="countdown__message-content">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <div>
+                                <h3 class="countdown__message-content-title">Курс уже начался!</h3>
+                                <p class="countdown__message-content-text">Но вы все еще можете присоединиться. Свяжитесь с нами для уточнения деталей.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Секция "Программа курса" -->
         <section id="program" class="program section">
             <div class="container">
@@ -660,6 +735,7 @@
 
     <!-- Скрипты -->
     <script src="js/script.js"></script>
+    <script src="js/count-down-timer.js"></script>
     <script src="js/modal-form.js"></script>
 </body>
 </html>

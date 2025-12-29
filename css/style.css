@@ -271,6 +271,318 @@ img {
     font-size: 1.2rem;
 }
 
+/* ============== СТИЛИ ДЛЯ ТАЙМЕРА ОБРАТНОГО ОТСЧЕТА ============================ */
+
+.countdown {
+    background-image: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-top: 3px solid var(--accent-color);
+    border-bottom: 3px solid var(--accent-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.countdown::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: url('../img/circle.svg') repeat;
+    background-size: 80px;
+}
+
+.countdown__wrapper {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.countdown__header {
+    margin-bottom: 40px;
+}
+
+.countdown__title {
+    font-size: 2.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 10px var(--box-shadow);
+}
+
+.countdown__subtitle {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Таймер */
+.countdown__timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.countdown__item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px 15px;
+    min-width: 120px;
+    box-shadow: 0 10px 30px var(--box-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.countdown__item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px var(--box-shadow);
+    background: rgba(229, 57, 53, 0.1);
+}
+
+.countdown__number {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--secondary-color);
+    line-height: 1;
+    margin-bottom: 10px;
+    font-family: 'Raleway', sans-serif;
+    text-shadow: 0 2px 5px var(--box-shadow);
+}
+
+.countdown__label {
+    font-size: 1rem;
+    color: var(--light-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.countdown__separator {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    font-weight: 900;
+    margin: 0 5px;
+}
+
+/* Дата старта */
+.countdown__date {
+    background: rgba(229, 57, 53, 0.1);
+    border: 1px solid rgba(229, 57, 53, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.countdown__date i {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+}
+
+.countdown__date strong {
+    color: var(--accent-color);
+    font-size: 1.3rem;
+}
+
+/* Кнопка CTA */
+.countdown__cta {
+    margin-top: 30px;
+}
+
+.countdown__btn {
+    font-size: 1.2rem;
+    padding: 18px 40px;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #c62828 100%);
+    border: none;
+    box-shadow: 0 5px 15px rgba(229, 57, 53, 0.4);
+    animation: pulse 2s infinite;
+}
+
+.countdown__btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(229, 57, 53, 0.6);
+    background: linear-gradient(135deg, #c62828 0%, #b71c1c 100%);
+}
+
+.countdown__btn svg {
+    position: relative;
+    top: 5px;
+    margin-right: 10px;
+}
+
+.countdown__note {
+    color: var(--light-gray);
+    margin-top: 15px;
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+/* Сообщение после завершения таймера */
+.countdown__message {
+    background: rgba(255, 193, 7, 0.1);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.countdown__message-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+}
+
+.countdown__message-content svg {
+    color: #ffc107;
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.countdown__message-content-title {
+    color: #ffc107;
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+.countdown__message-content-text {
+    color: var(--light-gray);
+    margin: 0;
+}
+
+/* Анимация появления таймера */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.countdown__wrapper {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Анимация пульсации для кнопки */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(229, 57, 53, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(229, 57, 53, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(229, 57, 53, 0);
+    }
+}
+
+/* Анимация для предупреждения (последние 24 часа) */
+@keyframes warning {
+    0%, 100% {
+        background-color: rgba(229, 57, 53, 0.1);
+        border-color: rgba(229, 57, 53, 0.3);
+    }
+    50% {
+        background-color: rgba(229, 57, 53, 0.3);
+        border-color: rgba(229, 57, 53, 0.6);
+    }
+}
+
+/* Класс для последних 24 часов */
+.countdown__item--warning {
+    animation: warning 2s infinite;
+    background: rgba(229, 57, 53, 0.2) !important;
+    border-color: #e53935 !important;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .countdown__title {
+        font-size: 2.2rem;
+    }
+    
+    .countdown__timer {
+        gap: 10px;
+    }
+    
+    .countdown__item {
+        min-width: 80px;
+        padding: 20px 10px;
+    }
+    
+    .countdown__number {
+        font-size: 2.5rem;
+    }
+    
+    .countdown__separator {
+        font-size: 2rem;
+        margin: 0 2px;
+    }
+}
+
+@media (max-width: 576px) {
+    .countdown__title {
+        font-size: 1.8rem;
+    }
+    
+    .countdown__subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .countdown__timer {
+        gap: 0;
+    }
+    
+    .countdown__item {
+        min-width: 60px;
+        padding: 15px 5px;
+    }
+    
+    .countdown__number {
+        font-size: 1.6rem;
+    }
+    
+    .countdown__label {
+        font-size: 0.6rem;
+    }
+    
+    .countdown__separator {
+        font-size: 1.5rem;
+    }
+    
+    .countdown__date {
+        font-size: 1rem;
+        padding: 15px;
+    }
+
+    #start-date {
+        display: block;
+    }
+    
+    .countdown__btn {
+        font-size: 1rem;
+        padding: 15px 30px;
+    }
+}
+
 /* Секция программы */
 .program__content {
     display: grid;
