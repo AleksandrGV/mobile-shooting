@@ -15,6 +15,10 @@ class CountdownTimer {
         this.countdownBtn = document.getElementById('countdown-btn');
         this.countdownMessage = document.getElementById('countdown-message');
         this.timerElement = document.querySelector('.countdown__timer');
+        this.subTitle = document.querySelector('.countdown__subtitle');
+        this.note = document.querySelector('.countdown__note');
+        this.title = document.querySelector('.countdown__title');
+
         
         // Стартовые значения
         this.days = 0;
@@ -85,15 +89,18 @@ class CountdownTimer {
         const totalHours = (this.days * 24) + this.hours;
         
         if (totalHours <= 24 && totalHours > 0) {
-            // Добавляем класс предупреждения всем элементам
+        // Добавляем класс предупреждения всем элементам
             document.querySelectorAll('.countdown__item').forEach(item => {
                 item.classList.add('countdown__item--warning');
             });
             
             // Меняем цвет заголовка
-            const title = document.querySelector('.countdown__title');
-            if (title) {
-                title.style.color = '#e53935';
+            if (this.title) {
+                this.title.style.color = '#e53935';
+            }
+
+            if (this.subTitle) {
+                this.subTitle.textContent = 'Успейте записаться!';
             }
             
             // Обновляем текст кнопки
@@ -105,11 +112,11 @@ class CountdownTimer {
             }
             
             // Обновляем примечание
-            const note = document.querySelector('.countdown__note');
-            if (note) {
-                note.textContent = '🔥 Осталось меньше 24 часов! Цена увеличится совсем скоро!';
-                note.style.color = '#e53935';
-                note.style.fontWeight = 'bold';
+            // const note = document.querySelector('.countdown__note');
+            if (this.note) {
+                this.note.textContent = '🔥 Осталось меньше 24 часов!';  //Цена увеличится совсем скоро!';
+                this.note.style.color = '#e53935';
+                this.note.style.fontWeight = 'bold';
             }
         }
     }
@@ -232,12 +239,14 @@ class CountdownTimer {
     showFinishedMessage() {
         // Останавливаем таймер
         this.stopTimer();
+
+        
         
         // Скрываем таймер и кнопку
         if (this.timerElement) {
             this.timerElement.style.display = 'none';
         }
-        
+
         if (this.countdownBtn) {
             this.countdownBtn.style.display = 'none';
         }
@@ -254,21 +263,24 @@ class CountdownTimer {
         }
         
         // Меняем текст заголовка
-        const title = document.querySelector('.countdown__title');
-        if (title) {
-            title.textContent = 'Курс уже начался!';
-            title.style.color = '#ffc107';
+        if (this.title) {
+            this.title.textContent = 'Курс уже начался!';
+            this.title.style.color = '#ffc107';
         }
         
         // Меняем подзаголовок
-        const subtitle = document.querySelector('.countdown__subtitle');
-        if (subtitle) {
-            subtitle.textContent = 'Присоединяйтесь сейчас - еще есть возможность!';
-            subtitle.style.color = '#ffc107';
+        if (this.subTitle) {
+            this.subTitle.textContent = 'Присоединяйтесь сейчас - еще есть возможность!';
+            this.subTitle.style.color = '#ffc107';
+        }
+
+        // Скрываем текст с действием скидки если ее дату если она отличается от даты начала курса
+        if (this.note) {
+            this.note.style.display = 'none';
         }
         
         // Логируем в консоль
-        logDebug('🎉 Таймер завершен! Курс начался.');
+        // console.log('🎉 Таймер завершен! Курс начался.');
     }
     
     /**
