@@ -112,7 +112,6 @@ class CountdownTimer {
             }
             
             // Обновляем примечание
-            // const note = document.querySelector('.countdown__note');
             if (this.note) {
                 this.note.textContent = '🔥 Осталось меньше 24 часов!';  //Цена увеличится совсем скоро!';
                 this.note.style.color = '#e53935';
